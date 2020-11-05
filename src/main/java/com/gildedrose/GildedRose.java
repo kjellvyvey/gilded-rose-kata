@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.qualityUpdater.QualityUpdater;
+
 import java.util.Arrays;
 
 public class GildedRose {
@@ -75,8 +77,7 @@ public class GildedRose {
     public void updateQualityImproved() {
         this.items = Arrays
                 .stream(items)
-                .map(SellInUpdater::updateSellInForItem)
-                .map(QualityUpdater::updateQualityForItem)
+                .map(QualityUpdater::updateQuality)
                 .toArray(Item[]::new);
     }
 }
