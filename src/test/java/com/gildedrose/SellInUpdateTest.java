@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.qualityUpdater.QualityUpdater;
+import com.gildedrose.qualityUpdater.GildedRoseQualityUpdater;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 
@@ -55,7 +55,9 @@ class SellInUpdateTest {
     }
 
     private void testQualityUpdaterNew(SoftAssertions s, Item item, int expectedQuality) {
-        Item actual = QualityUpdater.updateQuality(item);
+        GildedRoseQualityUpdater qualityUpdater = new GildedRoseQualityUpdater();
+
+        Item actual = qualityUpdater.updateQuality(item);
 
         s.assertThat(actual.sellIn).isEqualTo(expectedQuality);
     }

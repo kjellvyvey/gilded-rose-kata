@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.qualityUpdater.QualityUpdater;
+import com.gildedrose.qualityUpdater.GildedRoseQualityUpdater;
 
 import java.util.Arrays;
 
@@ -74,10 +74,12 @@ public class GildedRose {
         }
     }
 
-    public void updateQualityImproved() {
+    public void updateQualityNew() {
+        GildedRoseQualityUpdater qualityUpdater = new GildedRoseQualityUpdater();
+
         this.items = Arrays
                 .stream(items)
-                .map(QualityUpdater::updateQuality)
+                .map(qualityUpdater::updateQuality)
                 .toArray(Item[]::new);
     }
 }

@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import com.gildedrose.qualityUpdater.QualityUpdaterStrategy;
-
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
@@ -32,7 +30,7 @@ public class TexttestFixture {
 //            System.out.println("-------- day " + i + " --------");
 //            System.out.println("name, sellIn, quality");
 
-            System.out.println(String.format("day %-4s sellin: %-4s quality:%-4s", i, items[0].sellIn, items[0].quality));
+            System.out.printf("day %-4s sellin: %-4s quality:%-4s%n", i, items[0].sellIn, items[0].quality);
             app.updateQuality();
         }
     }
