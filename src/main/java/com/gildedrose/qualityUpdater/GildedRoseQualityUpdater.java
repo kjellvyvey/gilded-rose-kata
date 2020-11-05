@@ -5,8 +5,6 @@ import com.gildedrose.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.util.Objects.isNull;
-
 public class GildedRoseQualityUpdater {
 
     public static final QualityUpdater QUALITY_UPDATER_STANDARD = new QualityUpdaterStandardItem();

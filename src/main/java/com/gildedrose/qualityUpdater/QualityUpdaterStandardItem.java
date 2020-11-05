@@ -8,10 +8,10 @@ public class QualityUpdaterStandardItem extends QualityUpdater {
 
     @Override
     public Item updateQuality(Item item) {
-        Item newItem = updateSellIn(item);
+        Item newItem = updateSellIn(item, --item.sellIn);
 
         int newQuality = newItem.quality;
-        if (item.sellIn >= 0) {
+        if (newItem.sellIn >= 0) {
             newQuality -= 1;
         } else {
             newQuality -= 2;

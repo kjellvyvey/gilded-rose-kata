@@ -8,8 +8,8 @@ public abstract class QualityUpdater {
 
     public abstract Item updateQuality(Item item);
 
-    protected Item updateSellIn(Item item) {
-        return new Item(item.name, --item.sellIn, item.quality);
+    protected Item updateSellIn(Item item, int newSellin) {
+        return new Item(item.name, newSellin, item.quality);
     }
 
     protected Item updateQuality(Item item, int newQuality) {

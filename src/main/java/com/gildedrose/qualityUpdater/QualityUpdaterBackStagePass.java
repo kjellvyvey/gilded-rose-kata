@@ -8,14 +8,14 @@ public class QualityUpdaterBackStagePass extends QualityUpdater {
 
     @Override
     public Item updateQuality(Item item) {
-        Item newItem = updateSellIn(item);
+        Item newItem = updateSellIn(item, --item.sellIn);
 
         int newQuality = newItem.quality;
-        if (item.sellIn >= 10 ) {
+        if (newItem.sellIn >= 10 ) {
             newQuality += 1;
-        } else if (item.sellIn >= 5) {
+        } else if (newItem.sellIn >= 5) {
             newQuality += 2;
-        } else if (item.sellIn >= 0) {
+        } else if (newItem.sellIn >= 0) {
             newQuality += 3;
         } else {
             newQuality = 0;
