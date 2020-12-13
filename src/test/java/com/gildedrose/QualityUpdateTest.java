@@ -74,8 +74,6 @@ class QualityUpdateTest {
     }
 
     private void testUpdateQuality(SoftAssertions s, Item item, int expectedQuality) {
-        gildedRose = new GildedRose(new Item[]{item});
-
         testOldQualityUpdate(s, new Item(item.name, item.sellIn, item.quality), expectedQuality);
         testNewQualityUpdate(s, new Item(item.name, item.sellIn, item.quality), expectedQuality);
     }

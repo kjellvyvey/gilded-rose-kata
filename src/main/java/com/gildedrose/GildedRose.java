@@ -1,8 +1,10 @@
 package com.gildedrose;
 
-import com.gildedrose.qualityUpdater.GildedRoseQualityUpdater;
+import com.gildedrose.qualityUpdater.*;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GildedRose {
     private Item[] items;
@@ -81,5 +83,32 @@ public class GildedRose {
                 .stream(items)
                 .map(qualityUpdater::updateQuality)
                 .toArray(Item[]::new);
+    }
+
+    private class GildedRoseQualityUpdater {
+
+        private QualityUpdater QUALITY_UPDATER_STANDARD = new QualityUpdaterStandardItem();
+
+        private Map<String, QualityUpdater> updaters = new HashMap<>();
+
+        public GildedRoseQualityUpdater() {
+            initializeUpdaters();
+        }
+
+        private void initializeUpdaters() {
+            updaters.put("Sulfuras, Hand of Ragnaros", new QualityUpdaterLegendaryItem());
+            updaters.put("Aged Brie", new QualityUpdaterAgedBrie());
+            updaters.put("Backstage passes to a TAFKAL80ETC concert", new QualityUpdaterBackStagePass());
+        }
+
+        public Item updateQuality(final Item item) {
+            QualityUpdater updater = getUpdater(item.name);
+
+            return updater.updateQuality(item);
+        }
+
+        private QualityUpdater getUpdater(String name) {
+            return updaters.computeIfAbsent(name, (String) -> QUALITY_UPDATER_STANDARD);
+        }
     }
 }
